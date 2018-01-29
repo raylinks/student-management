@@ -1,0 +1,35 @@
+ <div class="table-responsive text-center">
+                                                                       @if($teachers->count() > 0)
+  			<table class="table table-borderless" id="table">
+  				<thead>
+  					<tr>
+  						<th class="text-center">#</th>
+  						<th class="text-center">Full Name</th>
+  						<th class="text-center">Email</th>
+  						<th class="text-center">Address</th>
+  						<th class="text-center">Phone Number</th>
+  						<th class="text-center">Age</th>
+                        <th class="text-center">Action</th>
+  					</tr>
+  				</thead>
+                <tbody id="teachers-list" name="teachers-list">
+                @foreach($teachers as $teacher)
+                    <tr id="teacher{{$teacher->id}}">
+  					<td>{{$teacher->id}}</td>
+  					<td>{{$teacher->full_name}}</td>
+  					<td>{{$teacher->email}}</td>
+  					<td>{{$teacher->address}}</td>
+  					<td>{{$teacher->phonenum}}</td>
+  					<td>{{$teacher->age}}</td>
+  					<td>
+
+                            <button class="btn btn-warning btn-xs btn-detail open-modal" data-toggle="modal" data-target="#myModal3" value="{{$teacher->id}}"><i class="fa fa-pencil"></i> Edit</button>
+                            <button class="btn btn-danger btn-xs btn-delete delete-task" value="{{$teacher->id}}"><i class="fa fa-times"></i> Delete</button>
+                                    </td>
+  				</tr>
+                @endforeach
+  			</table>
+                                                                    @else
+                                                                        <div class="alert alert-info">Not Found!!</div>
+                                                                    @endif
+  		</div>
